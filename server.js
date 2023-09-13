@@ -6,12 +6,12 @@ fs.readFile(dataPath,"utf-8").then((res)=>{
     const resObj = JSON.parse(res);
    
 
-    let countItem = {};
+    
     const result = resObj.reduce((out,current)=>{
         if(!out[current.category.name]){
             out.allObj = 1;
-            countItem[current.category.name]=1;
-            out[current.category.name]=countItem[current.category.name];
+            
+            out[current.category.name]=1;
      
             
         }else{
