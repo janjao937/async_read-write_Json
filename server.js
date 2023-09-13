@@ -4,24 +4,17 @@ const outputPath = "./output/allProduct.json";
 
 fs.readFile(dataPath,"utf-8").then((res)=>{
     const resObj = JSON.parse(res);
-   
-
-    
     const result = resObj.reduce((out,current)=>{
         if(!out[current.category.name]){
-            out.allObj = 1;
             
-            out[current.category.name]=1;
-     
-            
+            out[current.category.name]=1;        
         }else{
             out[current.category.name] +=1;
-            
         }
-        if(out.allObj)out.allObj++
+        out.allObj++
 
         return out;
-    },{})
+    },{allObj:0})
    return result;
 }).then((r)=> {
 
